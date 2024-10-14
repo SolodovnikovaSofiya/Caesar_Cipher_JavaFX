@@ -15,14 +15,12 @@ public class StatisticalAnalyzer {
     public int findBestKey() {
         Map<Character, Integer> frequencyMap = new HashMap<>();
 
-        // Подсчет частоты встречаемости букв
         for (char c : text.toCharArray()) {
             if (alphabet.indexOf(Character.toLowerCase(c)) != -1) {
                 frequencyMap.put(Character.toLowerCase(c), frequencyMap.getOrDefault(Character.toLowerCase(c), 0) + 1);
             }
         }
 
-        // Поиск наиболее часто встречающейся буквы
         char mostFrequentChar = ' ';
         int maxFrequency = 0;
 
@@ -33,7 +31,6 @@ public class StatisticalAnalyzer {
             }
         }
 
-        // Предполагаем, что наиболее часто встречающаяся буква в зашифрованном тексте соответствует 'e'
         int key = (alphabet.indexOf(mostFrequentChar) - alphabet.indexOf('e') + alphabet.length()) % alphabet.length();
 
         return key;

@@ -31,7 +31,6 @@ public class CipherProcessor {
                 System.out.println("Расшифрованный текст:");
                 System.out.println(decryptedText);
 
-                // Запись результата в файл
                 String outputFilePath = filePath + ".brute_force_decrypted";
                 writeFile(outputFilePath, decryptedText);
                 return;
@@ -56,7 +55,6 @@ public class CipherProcessor {
             System.out.println("Расшифрованный текст:");
             System.out.println(decryptedText);
 
-            // Запись результата в файл
             String outputFilePath = filePath + ".statistical_analysis_decrypted";
 
             writeFile(outputFilePath, decryptedText);
@@ -93,11 +91,10 @@ public class CipherProcessor {
         StringBuilder decryptedText = new StringBuilder();
 
         for (char c : text.toCharArray()) {
-            int index = new String(ALPHABET_ENG).indexOf(Character.toLowerCase(c));
-            if (index != -1) {
-                int newIndex = (index - key + ALPHABET_ENG.length) % ALPHABET_ENG.length;
-                char newChar = ALPHABET_ENG[newIndex];
-                decryptedText.append(Character.isUpperCase(c) ? Character.toUpperCase(newChar) : newChar);
+            if (Character.isLetter(c)) {
+                char base = Character.isLowerCase(c) ? 'a' : 'A';
+                char decryptedChar = (char) (base + (c - base - key + 26) % 26);
+                decryptedText.append(decryptedChar);
             } else {
                 decryptedText.append(c);
             }
