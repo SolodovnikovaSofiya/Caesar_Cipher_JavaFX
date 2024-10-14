@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.caesar_cipher_javafx.MainController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Caesar Cipher Application" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
+
+    <TextField fx:id="filePathField" promptText="Введите путь к файлу" style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-radius: 5px; -fx-padding: 5px;"/>
+    <Button fx:id="browseButton" text="Выбрать файл" onAction="#handleBrowse" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 5px; -fx-padding: 10px 20px;"/>
+
+    <Label text="Выберите режим:" style="-fx-font-size: 14px; -fx-text-fill: #333333;"/>
+    <RadioButton fx:id="encryptMode" text="Зашифровать" onAction="#handleModeChange" style="-fx-font-size: 14px; -fx-text-fill: #333333;"/>
+    <RadioButton fx:id="decryptMode" text="Расшифровать" onAction="#handleModeChange" style="-fx-font-size: 14px; -fx-text-fill: #333333;"/>
+    <RadioButton fx:id="bruteForceMode" text="Brute Force" onAction="#handleModeChange" style="-fx-font-size: 14px; -fx-text-fill: #333333;"/>
+    <RadioButton fx:id="statisticalAnalysisMode" text="Статистический анализ" onAction="#handleModeChange" style="-fx-font-size: 14px; -fx-text-fill: #333333;"/>
+
+    <TextField fx:id="keyField" promptText="Введите ключ (целое число)" visible="false" style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-radius: 5px; -fx-padding: 5px;"/>
+
+    <Button fx:id="processButton" text="Выполнить" onAction="#handleProcess" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 5px; -fx-padding: 10px 20px;"/>
+
+    <TextArea fx:id="outputArea" editable="false" prefHeight="100" prefWidth="400" style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-radius: 5px; -fx-padding: 5px;"/>
+</VBox>
